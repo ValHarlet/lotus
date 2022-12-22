@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/stephen
   projects:
     - name: zmk
-      remote: stephen
-      revision: main
+      remote: zmkfirmware
+      revision: split-encoder
       import: app/west.yml
   self:
     path: config
