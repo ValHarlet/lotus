@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/stephen
+      url-base: https://github.com/ValHarlet
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: split-encoder
+      revision: main
       import: app/west.yml
   self:
     path: config
