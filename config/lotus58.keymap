@@ -21,12 +21,12 @@
     };
 
     behaviors {
-        fofunc: four_ffour {
+        suprfunc: supr_func {
             compatible = "zmk,behavior-mod-morph";
-            label = "FOUR_FUNCFOUR";
+            label = "SUPR_FUNC";
             #binding-cells = <0>;
-            bindings = <&kp N4>, <&kp F4>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            bindings = <&kp BSPC>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         sleft: s_left {
             compatible = "zmk,behavior-mod-morph";
@@ -55,11 +55,11 @@
 // 38|  CTRL |  Z  |  X  |  C   |  V   |  B   |  MUTE   |  | PLAY   |  N   |  M    |  ,    |  .   |   /   | \ CTRL| 51
 // 52                    |ENT RS|  ALT | SPACE|DELETE LW|  |ENTER RS| BSPC |  ] LW | RGUI  |                        59
             bindings = <
-&kp N1 &kp N2   &kp N3     &kp N4   &kp N5                                  &kp N6    &kp N7      &kp N8    &kp N9   &kp N0   &kp MINUS   &kp EQUAL
-&kp TAB   &kp Q  &kp W    &kp E      &kp R     &kp T                         &kp Y     &kp U       &kp I     &kp O    &kp P    &kp LBKT
-&kp LSHFT &kp A  &sleft   &kp D      &fright   &kp G      &reset             &reset     &kp H     &kp J       &kp K     &kp L    &kp SEMI &mt RSHFT SQT
-&kp LCTRL &kp Z  &kp X    &kp C      &kp V     &kp B      &kp NON_US_BACKSLASH         &kp ESC   &kp N     &kp M       &kp COMMA &kp DOT  &kp FSLH &mt RCTRL BSLH
-                        &kp LEFT_GUI &tog 2   &kp LALT   &mt LSHFT SPACE             &kp ENTER  &kp RALT &tog 1  &kp BSPC     
+&kp N1 &kp N2   &kp N3     &kp N4   &kp N5     &kp N6                                           &kp N7      &kp N8    &kp N9   &kp N0   &kp MINUS   &kp EQUAL
+&kp TAB   &kp Q  &kp W    &kp E      &kp R     &kp T                                             &kp Y     &kp U       &kp I     &kp O    &kp P    &kp LBKT
+&kp LSHFT &kp A  &sleft   &kp D      &fright   &kp G      &reset                     &reset     &kp H     &kp J       &kp K     &kp L    &kp SEMI &mt RSHFT SQT
+&kp LCTRL &kp Z  &kp X    &kp C      &kp V     &kp B      &kp NON_US_BACKSLASH       &kp ESC   &kp N     &kp M       &kp COMMA &kp DOT  &kp FSLH &mt RCTRL BSLH
+                        &kp LEFT_GUI &tog 2   &kp LALT   &mt LSHFT SPACE             &kp ENTER  &kp RALT &tog 1  &suprfunc BSPC     
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
