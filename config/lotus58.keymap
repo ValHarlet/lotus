@@ -10,6 +10,13 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
     combos {
         compatible = "zmk,combos";
         combo_dsklg {
@@ -73,10 +80,10 @@
 // |       |  @  |  -  |  (   |  )   |  &   |        |  |       | MUTE |  PGDN |   v   |  :   |   *   |   |   |
 //                     |  F11 |      |      |        |  |       |      |       |  F12  |       
             bindings = <
-&kp F1    &kp F2    &kp F3      &kp F4     &kp F5                     &kp F6        &kp F7     &kp F8    &kp F9     &kp F10   &kp F11   &kp F12
-&trans     &kp EXCL    &kp UP    &kp HOME  &kp END    &kp PRCNT                  &kp C_VOL_UP  &kp PG_UP  &kp INS   &kp CARET  &kp PSCRN &kp MINUS
-&trans       &kp LEFT  &kp DOWN    &kp RIGHT &kp HASH &kp DLLR  &trans   &trans  &kp C_VOL_DN  &kp LEFT   &kp UP    &kp RIGHT  &kp TILDE &kp UNDER
-&trans     &kp AT    &kp MINUS &kp LBRC    &kp RBRC   &kp AMPS  &trans   &kp DELETE  &kp C_MUTE    &kp PG_DN  &kp DOWN  &kp COLON  &kp STAR  &kp PIPE
+&kp LS(N1) &kp LS(N2)  &kp LS(N3) &kp LS(N4) &kp LS(N5) &kp LS(N6)              &kp LS(N7) &kp LS(N8) &kp LS(N9)  &kp LS(N0) &kp LS(MINUS) &kp LS(EQUAL)
+&trans     &kp EXCL    &kp UP    &kp HOME  &kp END    &kp PRCNT                  &kp C_VOL_UP  &kp PG_UP  &kp UP   &kp CARET  &kp PSCRN &kp MINUS
+&none       &kp LEFT  &kp DOWN    &kp RIGHT &kp HASH &kp DLLR  &trans     &trans  &kp C_VOL_DN  &kp LEFT   &kp DOWN    &kp RIGHT  &kp TILDE &kp UNDER
+&trans     &kp K_CUT    &kp K_COPY   &kp K_PASTE    &kp RBRC   &kp AMPS  &trans   &kp DELETE  &kp C_MUTE    &kp PG_DN  &kp INS  &kp COLON  &kp STAR  &kp PIPE
                                &trans     &trans     &trans    &trans   &trans  &trans        &trans     &trans
             >;
 
@@ -84,6 +91,24 @@
         };
 
         raise_layer {
+// ------------------------------------------------------------------------------------------------------------
+// | `     |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
+// |       |  !  | HOME|   ^  |  END |  %   |                   | VOL^ |  PGUP |  INS  |  ^   |  PSCR |   -   |
+// |       |  #  |  <- |   v  | ->   |  $   |        |  |       | VOLv |    <- |   ^   |  ->  |   ~   |   _   |
+// |       |  @  |  -  |  (   |  )   |  &   |        |  |       | MUTE |  PGDN |   v   |  :   |   *   |   |   |
+//                     |  F11 |      |      |        |  |       |      |       |  F12  |       
+            bindings = <
+&kp F1    &kp F2    &kp F3      &kp F4     &kp F5                     &kp F6        &kp F7     &kp F8    &kp F9     &kp F10   &kp F11   &kp F12
+&trans     &kp INS      &kp K_UNDO    &kp K_CMENU  &reset       &trans                          &kp K_REDO     &trans        &kp UP        &trans     &trans  &trans
+&trans     &kp LALT     &kp LCTRL    &kp DOLLAR    &bootloader  &kp CLCK     &trans   &trans    &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT  &kp DEL &kp BSPC
+&trans        &kp K_CUT    &kp K_COPY   &kp K_PASTE  &trans    &trans    &trans   &trans    &trans        &kp C_PP      &kp C_PREV    &kp C_NEXT &trans  &trans
+                                     &trans       &trans       &trans       &trans   &trans    &trans        &trans        &trans 
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_NEXT C_PREV>;
+        };
+
+        then-layer {
 // ------------------------------------------------------------------------------------------------------------
 // |BTCLR| BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |OUTTOG|OUTUSB| OUTBT |      | RESET | FLASH |
 // |     | INS  | PSCR | GUI   | RESET |      |                | PGUP |      |   ^   |      |       |       |
