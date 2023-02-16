@@ -40,14 +40,14 @@
             label = "S_LEFT";
             #binding-cells = <0>;
             bindings = <&kp S>, <&kp LEFT>;
-            mods = <(MOD_LGUI|MOD_RGUI)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
         fright: f_right {
             compatible = "zmk,behavior-mod-morph";
             label = "R_RIGHT";
             #binding-cells = <0>;
             bindings = <&kp F>, <&kp RIGHT>;
-            mods = <(MOD_LGUI|MOD_RGUI)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
@@ -83,7 +83,7 @@
 &kp LS(N1) &kp LS(N2)  &kp LS(N3) &kp LS(N4)  &kp LS(N5) &kp LS(N6)                               &kp LS(N7)      &kp LS(N8) &kp LS(N9)   &kp LS(N0)  &kp LS(MINUS)    &kp LS(EQUAL)
 &trans     &kp EXCL    &kp UP     &kp HOME    &kp END    &kp PRCNT                                &kp C_VOL_UP    &kp PG_UP  &kp UP       &kp CARET   &kp PSCRN        &kp MINUS
 &none      &kp LEFT    &kp DOWN   &kp RIGHT   &kp HASH   &kp DLLR  &trans           &trans        &kp C_VOL_DN    &kp LEFT   &kp DOWN     &kp RIGHT   &kp TILDE        &kp UNDER
-&trans     &kp K_CUT   &kp K_COPY &kp K_PASTE &trans     &trans    &trans           &kp DELETE    &kp C_MUTE      &kp PG_DN  &kp INS      &kp COLON   &kp STAR         &kp PIPE
+&trans     &kp K_CUT   &kp K_COPY &kp K_PASTE &trans     &trans    &trans           &kp DELETE    &kp C_MUTE      &kp PG_DN  &trans       &trans    &trans          &trans 
                                   &trans      &trans     &trans    &kp SPACE        &trans        &trans          &trans     &trans
             >;
 
